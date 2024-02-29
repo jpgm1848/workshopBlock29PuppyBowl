@@ -1,5 +1,9 @@
 function NewPlayerForm() {
-  return <>NewPlayerForm component</>;
+  return (
+    <>
+      <h2>NewPlayerForm component</h2>
+    </>
+  );
 }
 
 export default NewPlayerForm;

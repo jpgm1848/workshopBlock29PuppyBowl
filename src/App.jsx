@@ -1,35 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import NavBar from "./components/NavBar";
+import AllPlayers from "./components/AllPlayers";
+import SinglePlayer from "./components/SinglePlayer";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>App</h1>
+      <NavBar />
+      <Routes>
+        {/* Path is what is added to our Base URL, element is the React component that is rendered */}
+        <Route path="/" element={<AllPlayers />}></Route>
+        {/* Colon in front of id is a request parameter, placeholder for some value. Inside of the SinglePlayer component, useParams will be able to access that id and request for that specific player.*/}
+        <Route path="/players/:id" element={<SinglePlayer />}></Route>
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
